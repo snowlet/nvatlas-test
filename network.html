@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Interactive noun-to-verb network for the NVAtlas corpus.">
+    <title>Noun–verb network · NVAtlas</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/site.js" defer></script>
+    <script src="assets/app.js" defer></script>
+  </head>
+  <body data-page="network">
+    <a class="skip-link" href="#main" data-en="Skip to content" data-zh="跳至主要內容"></a>
+    <header class="site-header">
+      <a class="brand" href="index.html" data-aria-en="NVAtlas home" data-aria-zh="NVAtlas 首頁">
+        <span class="brand-mark" aria-hidden="true">NV</span>
+        <span class="brand-copy"><strong>NVAtlas</strong><small data-i18n="brandTagline"></small></span>
+      </a>
+      <nav class="site-nav" data-aria-en="Main navigation" data-aria-zh="主要導覽">
+        <a href="index.html" data-page="overview" data-i18n="navOverview" data-preserve-query></a>
+        <a href="network.html" data-page="network" data-i18n="navNetwork" data-preserve-query></a>
+        <a href="terms.html" data-page="terms" data-i18n="navTerms" data-preserve-query></a>
+        <a href="distribution.html" data-page="distribution" data-i18n="navDistribution" data-preserve-query></a>
+        <a href="data.html" data-page="data" data-i18n="navData" data-preserve-query></a>
+        <a href="report.html" data-page="report" data-i18n="navReport" data-preserve-query></a>
+        <a href="codebook.html" data-page="codebook" data-i18n="navCodebook" data-preserve-query></a>
+        <a href="ai-use.html" data-page="ai" data-i18n="navAI" data-preserve-query></a>
+      </nav>
+      <label class="language-picker">
+        <span class="globe" aria-hidden="true"></span>
+        <span class="sr-only" data-en="Interface language" data-zh="介面語言"></span>
+        <select id="languageSelect" class="language-select" data-aria-en="Interface language" data-aria-zh="介面語言">
+          <option value="en">English</option>
+          <option value="zh">繁體中文</option>
+        </select>
+      </label>
+    </header>
+
+    <main id="main" class="page-shell">
+      <section class="view-hero" aria-labelledby="view-title">
+        <p class="eyebrow">01 · Relational view</p>
+        <h1 id="view-title"><span data-en="Noun–verb" data-zh="名詞–動詞"></span> <em data-en="network." data-zh="網絡。"></em></h1>
+        <p data-en="Follow repeated English key nouns to the Chinese verbs recorded beside them. Select a labeled node to open its exact term in context." data-zh="沿著重複的英文關鍵名詞，追蹤其旁記錄的中文動詞。點選詞語標籤可開啟該詞的上下文。"></p>
+      </section>
+
+      <section class="workspace" aria-label="Corpus filters">
+        <form class="control-deck" id="filterForm" autocomplete="off">
+          <div class="field">
+            <label for="searchInput" data-en="Keyword" data-zh="關鍵詞"></label>
+            <div class="search-wrap">
+              <input id="searchInput" type="search" data-placeholder-en="Search English, Chinese, key terms, or ID" data-placeholder-zh="搜尋英文、中文、關鍵詞或編號">
+            </div>
+          </div>
+          <div class="field">
+            <label for="categoryFilter" data-en="Category" data-zh="類別"></label>
+            <select id="categoryFilter">
+              <option value="" data-i18n="filterAllCategories"></option>
+              <option value="action_process" data-i18n="categoryAction"></option>
+              <option value="result_process" data-i18n="categoryResult"></option>
+              <option value="state_quality" data-i18n="categoryState"></option>
+              <option value="lexical_root" data-i18n="categoryRoot"></option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="checkedFilter" data-en="Human check" data-zh="人工核查"></label>
+            <select id="checkedFilter">
+              <option value="" data-i18n="filterAnyCheck"></option>
+              <option value="yes" data-i18n="filterChecked"></option>
+              <option value="no" data-i18n="filterUnchecked"></option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="lengthFilter" data-en="Sentence length" data-zh="句子長度"></label>
+            <select id="lengthFilter">
+              <option value="" data-i18n="filterAllLengths"></option>
+              <option value="short" data-i18n="lengthShort"></option>
+              <option value="medium" data-i18n="lengthMedium"></option>
+              <option value="long" data-i18n="lengthLong"></option>
+            </select>
+          </div>
+        </form>
+        <div class="workspace-footer">
+          <div class="result-summary" id="resultSummary" aria-live="polite"></div>
+          <div class="button-row">
+            <button class="btn" id="resetFilters" type="button" data-en="Reset" data-zh="重設"></button>
+            <button class="btn btn-primary" id="shareView" type="button" data-en="Copy shareable view" data-zh="複製分享連結"></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="network-title">
+        <div class="panel-head">
+          <div>
+            <p class="panel-kicker">Interactive graph</p>
+            <h2 class="panel-title" id="network-title" data-en="How key terms connect" data-zh="關鍵詞如何連結"></h2>
+          </div>
+          <div class="chart-controls" aria-label="Network controls">
+            <div class="chart-control">
+              <label for="termLimit"><span data-en="Terms per side" data-zh="每邊詞數"></span><output id="termLimitOutput" for="termLimit">8</output></label>
+              <div class="range-wrap"><input id="termLimit" type="range" min="4" max="14" value="8" step="1"></div>
+            </div>
+            <div class="chart-control">
+              <label for="linkLimit"><span data-en="Min. link weight" data-zh="最低連線次數"></span><output id="linkLimitOutput" for="linkLimit">1</output></label>
+              <div class="range-wrap"><input id="linkLimit" type="range" min="1" max="8" value="1" step="1"></div>
+            </div>
+          </div>
+        </div>
+        <div class="network-wrap">
+          <svg id="networkSvg" viewBox="0 0 820 510" role="img" aria-labelledby="networkSvgTitle networkSvgDesc">
+            <title id="networkSvgTitle">English-to-Chinese key term network</title>
+            <desc id="networkSvgDesc">Curved links connect frequent English key nouns to Chinese verb correspondences.</desc>
+          </svg>
+        </div>
+        <p class="caption" data-en="Which English key nouns repeatedly map to which Chinese verbs across the filtered rows? Selecting a node opens its aligned contexts." data-zh="在目前篩選範圍內，哪些英文關鍵名詞反覆對應到哪些中文動詞？點選節點可開啟對齊的上下文。"></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-shell"><span data-i18n="footerProject"></span><span data-i18n="footerSource"></span></div>
+    </footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

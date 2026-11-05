@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="AI use declaration for the NVAtlas corpus project.">
+    <title>AI use declaration · NVAtlas</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/site.js" defer></script>
+  </head>
+  <body data-page="ai">
+    <a class="skip-link" href="#main" data-en="Skip to content" data-zh="跳至主要內容"></a>
+    <header class="site-header">
+      <a class="brand" href="index.html" data-aria-en="NVAtlas home" data-aria-zh="NVAtlas 首頁">
+        <span class="brand-mark" aria-hidden="true">NV</span>
+        <span class="brand-copy">
+          <strong>NVAtlas</strong>
+          <small data-i18n="brandTagline"></small>
+        </span>
+      </a>
+      <nav class="site-nav" data-aria-en="Main navigation" data-aria-zh="主要導覽">
+        <a href="index.html" data-page="overview" data-i18n="navOverview" data-preserve-query></a>
+        <a href="network.html" data-page="network" data-i18n="navNetwork" data-preserve-query></a>
+        <a href="terms.html" data-page="terms" data-i18n="navTerms" data-preserve-query></a>
+        <a href="distribution.html" data-page="distribution" data-i18n="navDistribution" data-preserve-query></a>
+        <a href="data.html" data-page="data" data-i18n="navData" data-preserve-query></a>
+        <a href="report.html" data-page="report" data-i18n="navReport" data-preserve-query></a>
+        <a href="codebook.html" data-page="codebook" data-i18n="navCodebook" data-preserve-query></a>
+        <a href="ai-use.html" data-page="ai" data-i18n="navAI" data-preserve-query></a>
+      </nav>
+      <label class="language-picker">
+        <span class="globe" aria-hidden="true"></span>
+        <span class="sr-only" data-en="Interface language" data-zh="介面語言"></span>
+        <select id="languageSelect" class="language-select" data-aria-en="Interface language" data-aria-zh="介面語言">
+          <option value="en">English</option>
+          <option value="zh">繁體中文</option>
+        </select>
+      </label>
+    </header>
+
+    <main id="main" class="page-shell">
+      <section class="editorial-hero">
+        <p class="eyebrow">AI use declaration · 5 November 2026</p>
+        <h1>
+          <span data-en="Tools used," data-zh="使用了工具，"></span>
+          <em data-en="limits kept visible." data-zh="也保留了界限。"></em>
+        </h1>
+        <p
+          data-en="This page distinguishes the code and text generated with AI from the provenance and human verification that still require the project owner's judgement."
+          data-zh="本頁區分由 AI 協助生成的程式碼與文字，以及仍需專案擁有者判斷的來源追溯與人工核查。"
+        ></p>
+      </section>
+
+      <div class="article-layout">
+        <nav class="article-toc" aria-label="Declaration contents">
+          <strong data-en="Declaration" data-zh="聲明內容"></strong>
+          <a href="#tools" data-en="Tools and model" data-zh="工具與模型"></a>
+          <a href="#tasks" data-en="Tasks delegated" data-zh="委託工作"></a>
+          <a href="#human" data-en="Human responsibility" data-zh="人的責任"></a>
+          <a href="#prompts" data-en="Example prompts" data-zh="提示例子"></a>
+          <a href="#error" data-en="One AI error" data-zh="一次 AI 錯誤"></a>
+        </nav>
+
+        <article class="article">
+          <div class="callout">
+            <strong data-en="Submission status" data-zh="提交狀態"></strong>
+            <p
+              data-en="The website is implemented. The person using this project must still complete the required 20–30 row codebook test and 50-row source verification before presenting the corpus as human-checked."
+              data-zh="網站已完成。使用本專案的人仍須完成規定的 20–30 筆分類手冊測試，以及 50 筆來源核查，才可把語料呈現為已人工檢查。"
+            ></p>
+          </div>
+
+          <section id="tools">
+            <div class="lang-version" data-lang="en">
+              <h2>Tools and model</h2>
+              <p>
+                I used OpenAI Codex in the desktop app. The session identified the
+                agent as a GPT-5-based Codex environment, but it did not expose a
+                separate serving model number or deployment version. A precise
+                internal version therefore cannot be stated honestly from this
+                session alone.
+              </p>
+              <p>
+                No generative sentence or translation data was created. The source of
+                truth was the supplied <code>NVAtlas-AI-Agent.csv</code>.
+              </p>
+            </div>
+            <div class="lang-version" data-lang="zh" hidden>
+              <h2>工具與模型</h2>
+              <p>
+                我使用桌面版 OpenAI Codex。本次工作階段把代理識別為以 GPT-5
+                為基礎的 Codex 環境，但沒有另外顯示服務模型編號或部署版本。因此，單憑本次工作階段無法誠實地寫出更精確的內部版本。
+              </p>
+              <p>
+                沒有生成任何句子或翻譯資料。唯一資料來源是提供的
+                <code>NVAtlas-AI-Agent.csv</code>。
+              </p>
+            </div>
+          </section>
+
+          <section id="tasks">
+            <div class="lang-version" data-lang="en">
+              <h2>Tasks delegated to AI</h2>
+              <ul>
+                <li>Read the attached project brief and convert its requirements into an implementation plan.</li>
+                <li>Inspect the five-column CSV and identify duplicates, missing required fields, and missing upstream provenance.</li>
+                <li>Write a reproducible build script for <code>data/corpus.json</code> and the fixed 50-row review sample.</li>
+                <li>Draft and implement the ordered codebook suffix rules.</li>
+                <li>Build the bilingual static interface, search and filters, linked network, keyword-in-context view, heatmap, sortable table, CSV export, and URL state.</li>
+                <li>Draft bilingual explanatory text for the report, codebook, and this declaration.</li>
+                <li>Run structural and browser-level checks and correct implementation errors.</li>
+              </ul>
+            </div>
+            <div class="lang-version" data-lang="zh" hidden>
+              <h2>交由 AI 執行的工作</h2>
+              <ul>
+                <li>閱讀附上的專案說明，把要求轉換為實作計劃。</li>
+                <li>檢查五欄 CSV，找重複資料、缺少的必要欄位及缺失的上游來源。</li>
+                <li>撰寫可重現的建置腳本，生成 <code>data/corpus.json</code> 及固定 50 筆核查樣本。</li>
+                <li>草擬並實作有次序的分類手冊字尾規則。</li>
+                <li>建立雙語靜態介面、搜尋及篩選、互相連結的網絡圖、關鍵詞上下文、熱圖、可排序表格、CSV 匯出和網址狀態。</li>
+                <li>草擬學習報告、分類手冊及本聲明的雙語文字。</li>
+                <li>進行結構及瀏覽器測試，修正實作錯誤。</li>
+              </ul>
+            </div>
+          </section>
+
+          <section id="human">
+            <div class="lang-version" data-lang="en">
+              <h2>Work and checks retained by a person</h2>
+              <p>
+                The project owner supplied the brief and corpus. At the time of this
+                implementation, no person had recorded a source comparison in
+                <code>data/checked_ids.txt</code>; the site therefore marks every row
+                as not human-checked. Before submission, the owner should:
+              </p>
+              <ul class="checklist">
+                <li class="pending">Trace the CSV to its actual upstream corpus or replace it with a source whose provenance is known; verify that public display of the sentence pairs is permitted.</li>
+                <li class="pending">Test the four categories on 20–30 rows in their own words and log any revisions.</li>
+                <li class="pending">Compare the 50 rows in <code>data/spot-check.csv</code> with the original source, record corrections, and add verified IDs to <code>data/checked_ids.txt</code>.</li>
+                <li class="pending">Review the bilingual text as a personal report voice and revise it where needed.</li>
+                <li class="pending">Publish through GitHub Pages and test the live URL.</li>
+              </ul>
+            </div>
+            <div class="lang-version" data-lang="zh" hidden>
+              <h2>由人保留的工作與核查</h2>
+              <p>
+                專案擁有者提供了工作說明及語料。截至本次實作，尚未有人在
+                <code>data/checked_ids.txt</code> 記錄來源比對結果，因此網站把所有記錄標為未經人工核查。提交前，擁有者應：
+              </p>
+              <ul class="checklist">
+                <li class="pending">追溯 CSV 的真正上游語料庫，或改用來源清楚的資料，並確認句對可在網上公開展示。</li>
+                <li class="pending">用自己的文字在 20–30 筆資料上測試四個類別，並記錄任何修訂。</li>
+                <li class="pending">把 <code>data/spot-check.csv</code> 的 50 筆資料與原始來源比對，記錄修正，並把核實編號加入 <code>data/checked_ids.txt</code>。</li>
+                <li class="pending">以個人報告語氣檢視雙語文字，並按需要改寫。</li>
+                <li class="pending">透過 GitHub Pages 發佈並測試實際網址。</li>
+              </ul>
+            </div>
+          </section>
+
+          <section id="prompts">
+            <div class="lang-version" data-lang="en">
+              <h2>Two prompts that worked well</h2>
+              <blockquote>
+                “Read and implement the attached final-project brief for NVAtlas.”
+              </blockquote>
+              <p>
+                This worked because the PDF contained a complete set of constraints and
+                the repository supplied the corpus. Asking for the implementation
+                rather than only a summary made it possible to test the integrated
+                result.
+              </p>
+              <blockquote>
+                “Never invent data, sources, or human checks. Preserve the supplied CSV
+                and make any missing information explicit.”
+              </blockquote>
+              <p>
+                This constraint shaped the provenance text, duplicate counts, and the
+                decision to leave every row unchecked.
+              </p>
+            </div>
+            <div class="lang-version" data-lang="zh" hidden>
+              <h2>兩個有效的提示</h2>
+              <blockquote>
+                「閱讀並為 NVAtlas 實作附上的期末專案說明。」
+              </blockquote>
+              <p>
+                這個提示有效，因為 PDF 包含完整限制，而儲存庫提供了語料。要求直接實作而不只是摘要，使我能夠測試整合後的成果。
+              </p>
+              <blockquote>
+                「不要捏造資料、來源或人工核查。保留提供的 CSV，並清楚呈現任何缺失資訊。」
+              </blockquote>
+              <p>
+                這項限制決定了來源文字、重複計數方式，以及把所有記錄保持為未核查狀態的選擇。
+              </p>
+            </div>
+          </section>
+
+          <section id="error">
+            <div class="lang-version" data-lang="en">
+              <h2>One thing AI got wrong</h2>
+              <p>
+                An early inspection treated the supplied CSV as a ready corpus because
+                it already had 500 sentence pairs. A closer check showed that it lacked
+                the required provenance, category, and human-check fields and contained
+                eight extra rows in repeated pairs. The mistake was not in a sentence
+                translation; it was in assuming that a valid file structure implied
+                acceptable research provenance.
+              </p>
+              <p>
+                I noticed it by checking required fields, duplicate sentence pairs, and
+                traceability separately. The correction was to preserve the original
+                file, derive only fields supported by it, expose the missing upstream
+                source, and avoid claiming any human verification.
+              </p>
+            </div>
+            <div class="lang-version" data-lang="zh" hidden>
+              <h2>AI 做錯的一件事</h2>
+              <p>
+                初步檢查曾因提供的 CSV 已有 500 組句對，而把它當成可直接使用的完整語料。進一步核查後發現，它缺少必要的來源、分類和人工核查欄位，並且有八筆額外記錄落在重複句對中。錯誤不在句子翻譯，而在誤以為檔案結構有效便代表研究來源可接受。
+              </p>
+              <p>
+                我透過分別檢查必要欄位、重複句對及可追溯性發現問題。修正方式是保留原始檔案、只推導它實際支持的欄位、公開缺失的上游來源，並避免聲稱任何人工核查已完成。
+              </p>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-shell">
+        <span data-i18n="footerProject"></span>
+        <span data-i18n="footerSource"></span>
+      </div>
+    </footer>
+  </body>
+</html>

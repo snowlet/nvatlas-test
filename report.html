@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Learning report for the NVAtlas corpus explorer.">
+    <title>Learning report · NVAtlas</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/site.js" defer></script>
+    <script src="assets/report.js" defer></script>
+  </head>
+  <body data-page="report">
+    <a class="skip-link" href="#main" data-en="Skip to content" data-zh="跳至主要內容"></a>
+    <header class="site-header">
+      <a class="brand" href="index.html" data-aria-en="NVAtlas home" data-aria-zh="NVAtlas 首頁">
+        <span class="brand-mark" aria-hidden="true">NV</span>
+        <span class="brand-copy">
+          <strong>NVAtlas</strong>
+          <small data-i18n="brandTagline"></small>
+        </span>
+      </a>
+      <nav class="site-nav" data-aria-en="Main navigation" data-aria-zh="主要導覽">
+        <a href="index.html" data-page="overview" data-i18n="navOverview" data-preserve-query></a>
+        <a href="network.html" data-page="network" data-i18n="navNetwork" data-preserve-query></a>
+        <a href="terms.html" data-page="terms" data-i18n="navTerms" data-preserve-query></a>
+        <a href="distribution.html" data-page="distribution" data-i18n="navDistribution" data-preserve-query></a>
+        <a href="data.html" data-page="data" data-i18n="navData" data-preserve-query></a>
+        <a href="report.html" data-page="report" data-i18n="navReport" data-preserve-query></a>
+        <a href="codebook.html" data-page="codebook" data-i18n="navCodebook" data-preserve-query></a>
+        <a href="ai-use.html" data-page="ai" data-i18n="navAI" data-preserve-query></a>
+      </nav>
+      <label class="language-picker">
+        <span class="globe" aria-hidden="true"></span>
+        <span class="sr-only" data-en="Interface language" data-zh="介面語言"></span>
+        <select id="languageSelect" class="language-select" data-aria-en="Interface language" data-aria-zh="介面語言">
+          <option value="en">English</option>
+          <option value="zh">繁體中文</option>
+        </select>
+      </label>
+    </header>
+
+    <main id="main" class="page-shell">
+      <section class="editorial-hero">
+        <p class="eyebrow">Learning report · 2026R1</p>
+        <h1>
+          <span data-en="From nouns to" data-zh="由名詞"></span>
+          <em data-en="actions." data-zh="走向動作。"></em>
+        </h1>
+        <p
+          data-en="A study of how English key nouns and Chinese verb correspondences meet in 500 supplied sentence pairs, and of the checks a small corpus still needs."
+          data-zh="本研究考察 500 組英中句對裡，英文關鍵名詞與中文動詞對應如何相遇，以及小型語料仍然需要哪些核查。"
+        ></p>
+      </section>
+
+      <div class="article-layout">
+        <nav class="article-toc" aria-label="Report contents">
+          <strong data-en="In this report" data-zh="報告內容"></strong>
+          <a href="#origin" data-en="Origin" data-zh="起源"></a>
+          <a href="#background" data-en="Background" data-zh="背景"></a>
+          <a href="#gap" data-en="Gap" data-zh="研究缺口"></a>
+          <a href="#questions" data-en="Questions" data-zh="研究問題"></a>
+          <a href="#method" data-en="Method" data-zh="方法"></a>
+          <a href="#analysis" data-en="Analysis" data-zh="分析"></a>
+          <a href="#conclusion" data-en="Conclusion" data-zh="結論"></a>
+          <a href="#reflection" data-en="Reflection" data-zh="反思"></a>
+        </nav>
+
+        <article class="article">
+          <div class="metric-grid" aria-label="Corpus summary">
+            <div class="metric">
+              <strong id="reportRecords">500</strong>
+              <span data-en="source rows" data-zh="原文記錄"></span>
+            </div>
+            <div class="metric">
+              <strong id="reportPairs">492</strong>
+              <span data-en="unique sentence pairs" data-zh="組不重複句對"></span>
+            </div>
+            <div class="metric">
+              <strong id="reportChecked">0</strong>
+              <span data-en="records marked person-checked" data-zh="筆已標示人工核查記錄"></span>
+            </div>
+          </div>
+
+          <section id="origin">
+            <div class="lang-version" data-lang="en">
+              <h2>Origin</h2>
+              <p>
+                I chose nominal-to-verbal translation as the topic because the
+                department’s NV Atlas shows how a corpus becomes easier to reason
+                about when words, contexts, and relationships are linked rather than
+                buried in separate tables. The supplied CSV made this question
+                concrete: every row gives an English sentence, a Chinese sentence,
+                one English key noun, and one Chinese verb correspondence.
+              </p>
+              <p>
+                The project therefore asks a narrow question that the data can
+                actually support. It does not claim to judge every word in each
+                translation. It examines the supplied noun–verb pair as a visible
+                point of grammatical and lexical change.
+              </p>
+            </div>
+            <div class="lang-version" data-lang="zh" hidden>
+              <h2>起源</h2>
+              <p>
+                我選擇「名詞轉為動詞」作為題目，是因為翻譯系的 NV Atlas
+                展示了：當詞語、上下文和關係互相連結，而不是分散在表格裡，語料會更容易理解。提供的 CSV
+                使問題變得具體：每一筆資料都包含一個英文句子、一個中文句子、一個英文關鍵名詞，以及一個中文動詞對應。
+              </p>
+              <p>
+                因此，本專案只提出資料真正能回答的窄問題。它不以判定整句翻譯的每個詞為目標，而是把提供之名詞—動詞組合作為觀察語法與詞彙轉換的入口。
+              </p>
+            </div>
+          </section>
+
+          <section id="background">
+            <div class="lang-version" data-lang="en">
+              <h2>Background</h2>
+              <p>
+                English academic and narrative prose often uses nominalizations:
+                <em>permission</em>, <em>decision</em>, <em>attention</em>, and
+                <em>protection</em> package an action inside a noun. Chinese can
+                preserve a noun in some contexts, but it also frequently uses a verb
+                or verb-like expression where English uses a noun. This possibility
+                of grammatical recoding is central to translation shifts and
+                transposition.
+              </p>
+              <p>
+                The codebook operationalizes that broad idea through observable word
+                form. It separates action/process nominalizations, result/product
+                nominalizations, state/quality nominalizations, and nouns without
+                one of the tested derivational endings. The categories are a
+                starting point for comparison, not a proof that every Chinese item is
+                the only possible equivalent.
+              </p>
+            </div>
+            <div class="lang-version" data-lang="zh" hidden>
+              <h2>背景</h2>
+              <p>
+                英文學術與敘事文本常用名詞化，例如 <em>permission</em>（允許）、
+                <em>decision</em>（決定）、<em>attention</em>（注意）和
+                <em>protection</em>（保護），把動作壓縮成名詞。中文有時保留名詞，但也經常在英文使用名詞之處改用動詞或類動詞表達。這種語法重編碼與翻譯轉移、詞類轉換密切相關。
+              </p>
+              <p>
+                分類手冊把這個大概念落實為可觀察的詞形：動作／過程名詞化、結果／成品名詞化、狀態／性質名詞化，以及沒有採用上述可測後綴的詞根式名詞。這些類別是比較的起點，不是對唯一等效譯法的證明。
+              </p>
+            </div>
+          </section>
+
+          <section id="gap">
+            <div class="lang-version" data-lang="en">
+              <h2>Gap</h2>
+              <p>
+                Corpus dashboards often make counts look more authoritative than the
+                records behind them. This project addresses a smaller but important
+                gap: users need to move from a pattern to an aligned sentence, from an
+                aligned sentence back to a category, and from both to an honest
+                statement of provenance.
+              </p>
+              <p>
+                The supplied file has no upstream corpus name, URL, or original
+                sampling seed. It also contains eight extra rows that repeat a
+                sentence pair. The site records those limits instead of repairing them
+                through guesswork. A second unresolved gap is human verification: no
+                row can responsibly be marked <code>human_checked = yes</code> until a
+                person compares it with the original source.
+              </p>
+            </div>
+            <div class="lang-version" data-lang="zh" hidden>
+              <h2>研究缺口</h2>
+              <p>
+                語料儀表板常讓統計數字看起來比背後的記錄更權威。本專案處理一個較小但重要的缺口：使用者需要能從模式走到對齊的句子、從句子回到分類，並從兩者連到誠實的來源說明。
+              </p>
+              <p>
+                提供的檔案缺少上游語料庫名稱、網址及原本的取樣種子，另外有八筆額外記錄重複了句對。網站保留這些限制，而不是靠猜測修補。第二個未解缺口是人工核查：在任何資料與原始來源比對之前，不應負責任地把
+                <code>human_checked</code> 標成 <code>yes</code>。
+              </p>
+            </div>
+          </section>
+
+          <section id="questions">
+            <div class="lang-version" data-lang="en">
+              <h2>Questions</h2>
+              <ol>
+                <li>Which English key nouns recur most often in the supplied pairs?</li>
+                <li>How do the four form-based categories vary by English sentence length?</li>
+                <li>Which noun–verb correspondences form the strongest repeated links?</li>
+                <li>Can search and linked views keep the visual patterns accountable to individual sentences?</li>
+              </ol>
+            </div>
+            <div class="lang-version" data-lang="zh" hidden>
+              <h2>研究問題</h2>
+              <ol>
+                <li>提供的句對中，哪些英文關鍵名詞最常重複出現？</li>
+                <li>四個按詞形定義的類別如何隨英文句子長度變化？</li>
+                <li>哪些名詞—動詞對應形成最強的重複連線？</li>
+                <li>搜尋與互相連結的檢視能否讓視覺模式持續對應到個別句子？</li>
+              </ol>
+            </div>
+          </section>
+
+          <section id="method">
+            <div class="lang-version" data-lang="en">
+              <h2>Method</h2>
+              <p>
+                The source is <code>NVAtlas-AI-Agent.csv</code>, supplied on
+                5 November 2026. All 500 rows are retained in source order. The
+                structure of the input is independently checked: there are 500 unique
+                record IDs, 492 unique sentence-pair strings, and eight extra rows in
+                repeated pairs. Categories are assigned by an ordered suffix rule, so
+                rerunning the build produces the same labels.
+              </p>
+              <div class="figure-block">
+                <h3 class="figure-title" data-en="Reproducible data pipeline" data-zh="可重現的資料流程"></h3>
+                <p class="figure-question" data-en="How does each supplied row become a linked, inspectable record?" data-zh="每一筆提供記錄如何轉換成可連結、可檢查的資料？"></p>
+                <div class="pipeline">
+                  <div class="pipeline-step">
+                    <b data-en="01 · Preserve" data-zh="01 · 保存"></b>
+                    <span data-en="Keep the original CSV unchanged." data-zh="保留原始 CSV 不變。"></span>
+                  </div>
+                  <div class="pipeline-step">
+                    <b data-en="02 · Normalize" data-zh="02 · 整理"></b>
+                    <span data-en="Map the five columns to the required schema." data-zh="把五個欄位映射到工作要求的資料結構。"></span>
+                  </div>
+                  <div class="pipeline-step">
+                    <b data-en="03 · Classify" data-zh="03 · 分類"></b>
+                    <span data-en="Apply the ordered codebook suffix rules." data-zh="依序套用分類手冊的後綴規則。"></span>
+                  </div>
+                  <div class="pipeline-step">
+                    <b data-en="04 · Validate" data-zh="04 · 驗證"></b>
+                    <span data-en="Link every chart to the same filtered records." data-zh="讓所有圖表連結到同一組篩選記錄。"></span>
+                  </div>
+                </div>
+              </div>
+              <p>
+                For the required manual check, the build script draws 50 records with
+                fixed seed <code>2026</code> and writes them to
+                <code>data/spot-check.csv</code>. That list is intentionally still
+                pending. Once a person compares each row with the original source,
+                verified IDs can be added to <code>data/checked_ids.txt</code> and the
+                corpus can be rebuilt. The codebook log records no post-test revisions
+                yet because the 20–30 row human test has not been completed.
+              </p>
+            </div>
+            <div class="lang-version" data-lang="zh" hidden>
+              <h2>方法</h2>
+              <p>
+                資料來源是 2026 年 11 月 5 日提供的 <code>NVAtlas-AI-Agent.csv</code>。500
+                筆記錄全部按原順序保留。輸入結構另行檢查：共有 500 個唯一記錄編號、492
+                個不重複句對字串，重複句對中有八筆額外記錄。分類採用有先後次序的後綴規則，因此每次重建都會產生相同標籤。
+              </p>
+              <div class="figure-block">
+                <h3 class="figure-title" data-en="Reproducible data pipeline" data-zh="可重現的資料流程"></h3>
+                <p class="figure-question" data-en="How does each supplied row become a linked, inspectable record?" data-zh="每一筆提供記錄如何轉換成可連結、可檢查的資料？"></p>
+                <div class="pipeline">
+                  <div class="pipeline-step">
+                    <b data-en="01 · Preserve" data-zh="01 · 保存"></b>
+                    <span data-en="Keep the original CSV unchanged." data-zh="保留原始 CSV 不變。"></span>
+                  </div>
+                  <div class="pipeline-step">
+                    <b data-en="02 · Normalize" data-zh="02 · 整理"></b>
+                    <span data-en="Map the five columns to the required schema." data-zh="把五個欄位映射到工作要求的資料結構。"></span>
+                  </div>
+                  <div class="pipeline-step">
+                    <b data-en="03 · Classify" data-zh="03 · 分類"></b>
+                    <span data-en="Apply the ordered codebook suffix rules." data-zh="依序套用分類手冊的後綴規則。"></span>
+                  </div>
+                  <div class="pipeline-step">
+                    <b data-en="04 · Validate" data-zh="04 · 驗證"></b>
+                    <span data-en="Link every chart to the same filtered records." data-zh="讓所有圖表連結到同一組篩選記錄。"></span>
+                  </div>
+                </div>
+              </div>
+              <p>
+                為執行要求的人工檢查，建置腳本用固定種子 <code>2026</code> 抽取 50
+                筆記錄，寫入 <code>data/spot-check.csv</code>。該清單刻意保持待核查狀態。當有人把每一筆與原始來源比對後，可把已核實編號加入
+                <code>data/checked_ids.txt</code>，再重建語料。分類手冊的變更日誌目前尚未記錄測試後的修訂，因為 20–30 筆人工測試仍未完成。
+              </p>
+            </div>
+          </section>
+
+          <section id="analysis">
+            <div class="lang-version" data-lang="en">
+              <h2>Analysis</h2>
+              <p>
+                The noun–verb network is the first entry point into repetition. In the
+                full corpus, <em>attention</em> is the most frequent English key noun,
+                occurring 45 times; its Chinese correspondence <strong>注意</strong>
+                occurs 42 times. This gap is already analytically useful: repeated
+                source language does not guarantee a perfectly one-to-one extracted
+                target term. The other strong clusters include permission, protection,
+                vacation, performance, and question-related actions.
+              </p>
+              <p>
+                The Term-in-context view then tests those frequencies against aligned
+                sentences. Selecting a node or keyword chip opens its source and target
+                contexts, so a repeated pattern cannot remain detached from the row
+                that produced it.
+              </p>
+            </div>
+            <div class="lang-version" data-lang="zh" hidden>
+              <h2>分析</h2>
+              <p>
+                「名詞–動詞網絡」是觀察重複模式的第一個入口。在完整語料中，<em>attention</em>
+                是最頻繁的英文關鍵名詞，共出現 45 次；其中文對應詞<strong>注意</strong>出現 42
+                次。這個差距本身已有分析價值：原文詞語的重複不一定保證抽出的譯文詞語完全一對一。其他明顯的詞群包括 permission、protection、vacation、performance
+                以及與 question 有關的動作。
+              </p>
+              <p>
+                接著，「詞語與上下文」檢視把頻率放回對齊句子中。點選網絡節點或關鍵詞標籤後，便會顯示原文和譯文上下文，使重複模式不能脫離產生它的記錄。
+              </p>
+            </div>
+
+            <figure class="figure-block">
+              <h3 class="figure-title" data-i18n="categoryFigure"></h3>
+              <p class="figure-question" data-en="Which nominalization patterns carry the largest share of the supplied rows?" data-zh="在提供記錄中，哪種名詞化模式佔最大比例？"></p>
+              <div class="report-bars" id="reportBars"></div>
+            </figure>
+
+            <div class="lang-version" data-lang="en">
+              <p>
+                The Category composition figure shows a corpus dominated by
+                action/process nominalizations, as expected from the concentration of
+                words ending in <code>-tion</code> and <code>-sion</code>. The Category
+                by source length view asks whether this form-based profile changes with
+                sentence length. Any interpretation should remain provisional: the
+                source lacks upstream provenance, repeated pairs inflate some counts,
+                and the human quality check is outstanding.
+              </p>
+              <p>
+                The Corpus data table provides the record-level audit trail behind all
+                three views: sorting, filtering, keyword links, and CSV export all use
+                the same current record set.
+              </p>
+            </div>
+            <div class="lang-version" data-lang="zh" hidden>
+              <p>
+                「類別構成」圖顯示語料以動作／過程名詞化為主，這與大量
+                <code>-tion</code>、<code>-sion</code> 字尾詞相符合。「類別與原文長度」檢視進一步詢問這個按詞形得出的概況是否隨句長改變。任何解讀都應暫時保守：來源缺少上游說明、重複句對會放大部分次數，而且人工品質核查仍未完成。
+              </p>
+              <p>
+                「語料資料」表格提供三個檢視背後的逐筆稽核路徑：排序、篩選、關鍵詞連結和 CSV
+                匯出都使用同一組目前記錄。
+              </p>
+            </div>
+          </section>
+
+          <section id="conclusion">
+            <div class="lang-version" data-lang="en">
+              <h2>Conclusion</h2>
+              <p>
+                The executable result is a complete static corpus explorer with
+                search, category and review-status filters, three linked analytical
+                views, an exportable table, bilingual interface text, a published
+                codebook, a learning report, and an AI-use declaration. The strongest
+                visible pattern is the repeated mapping of abstract English
+                nominalizations to compact Chinese verbs, especially around attention.
+              </p>
+              <p>
+                That finding remains a data description rather than a final claim
+                about translation norms. The next meaningful step is human source
+                verification, followed by correction of any mismatched sentence pairs
+                and a revision of the codebook after its first small test.
+              </p>
+              <p><a class="btn btn-primary" href="index.html">Open the corpus explorer</a></p>
+            </div>
+            <div class="lang-version" data-lang="zh" hidden>
+              <h2>結論</h2>
+              <p>
+                本次交付的成果是一個完整的靜態語料探索器，包含搜尋、類別及核查狀態篩選、三個互相連結的分析檢視、可匯出的表格、雙語介面、已發佈的分類手冊、學習報告與 AI
+                使用聲明。最明顯的視覺模式，是抽象英文名詞化重複對應到精簡的中文動詞，尤其在 attention 一詞周圍最突出。
+              </p>
+              <p>
+                這項發現目前只是資料描述，不是對翻譯規範的最終結論。下一步應由人工核對原始來源，修正任何不對應的句對，並在第一次小規模測試後修訂分類手冊。
+              </p>
+              <p><a class="btn btn-primary" href="index.html">開啟語料探索器</a></p>
+            </div>
+          </section>
+
+          <section id="reflection">
+            <div class="lang-version" data-lang="en">
+              <h2>Reflection</h2>
+              <p>
+                The most important difficulty was not drawing charts. It was deciding
+                what claims the input could support. A working interface can hide data
+                problems behind polished totals. Building provenance fields,
+                duplicate-group counts, a fixed review sample, and the same filter
+                state across every view made those gaps harder to ignore.
+              </p>
+              <p>
+                AI was useful for translating the brief into an implementation plan,
+                generating the static code, mapping fields, and testing interactions.
+                It could not supply the missing upstream source or perform the
+                person’s required manual evaluation. I would next test the category
+                rules on 20–30 rows before scaling up, and I would collect provenance
+                at the same moment as each sentence pair rather than trying to recover
+                it later.
+              </p>
+            </div>
+            <div class="lang-version" data-lang="zh" hidden>
+              <h2>反思</h2>
+              <p>
+                最大的困難並非畫圖，而是判斷輸入資料足以支持哪些結論。一個運作正常的介面可能用精緻的統計數字掩蓋資料問題。建立來源欄位、重複群組計數、固定核查樣本，以及讓每個檢視共用同一篩選狀態，能使這些缺口較難被忽略。
+              </p>
+              <p>
+                AI 能協助把工作說明轉成實作計劃、產生靜態程式碼、映射欄位及測試互動，卻不能補回缺失的上游來源，也不能代替學生完成必要的人工評估。下一步應先以 20–30
+                筆記錄測試分類規則，再擴大規模；日後也應在收集每個句對的同時記錄來源，而不是事後設法補救。
+              </p>
+            </div>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-shell">
+        <span data-i18n="footerProject"></span>
+        <span data-i18n="footerSource"></span>
+      </div>
+    </footer>
+  </body>
+</html>

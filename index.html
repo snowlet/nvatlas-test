@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A bilingual English and Traditional Chinese corpus explorer for translation research.">
+    <title>NVAtlas Corpus Explorer</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/site.js" defer></script>
+    <script src="assets/app.js" defer></script>
+  </head>
+  <body data-page="overview">
+    <a class="skip-link" href="#main" data-en="Skip to content" data-zh="跳至主要內容"></a>
+    <header class="site-header">
+      <a class="brand" href="index.html" data-aria-en="NVAtlas home" data-aria-zh="NVAtlas 首頁">
+        <span class="brand-mark" aria-hidden="true">NV</span>
+        <span class="brand-copy">
+          <strong>NVAtlas</strong>
+          <small data-i18n="brandTagline"></small>
+        </span>
+      </a>
+      <nav class="site-nav" data-aria-en="Main navigation" data-aria-zh="主要導覽">
+        <a href="index.html" data-page="overview" data-i18n="navOverview" data-preserve-query></a>
+        <a href="network.html" data-page="network" data-i18n="navNetwork" data-preserve-query></a>
+        <a href="terms.html" data-page="terms" data-i18n="navTerms" data-preserve-query></a>
+        <a href="distribution.html" data-page="distribution" data-i18n="navDistribution" data-preserve-query></a>
+        <a href="data.html" data-page="data" data-i18n="navData" data-preserve-query></a>
+        <a href="report.html" data-page="report" data-i18n="navReport" data-preserve-query></a>
+        <a href="codebook.html" data-page="codebook" data-i18n="navCodebook" data-preserve-query></a>
+        <a href="ai-use.html" data-page="ai" data-i18n="navAI" data-preserve-query></a>
+      </nav>
+      <label class="language-picker">
+        <span class="globe" aria-hidden="true"></span>
+        <span class="sr-only" data-en="Interface language" data-zh="介面語言"></span>
+        <select id="languageSelect" class="language-select" data-aria-en="Interface language" data-aria-zh="介面語言">
+          <option value="en">English</option>
+          <option value="zh">繁體中文</option>
+        </select>
+      </label>
+    </header>
+
+    <main id="main" class="page-shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Translation technology · 2026R1</p>
+          <h1 id="hero-title">
+            <span data-en="Nominal forms," data-zh="名詞形式，"></span>
+            <em data-en="verbal turns." data-zh="動詞轉向。"></em>
+          </h1>
+          <p class="hero-lead">
+            <span
+              data-en="Explore 500 English–Chinese sentence pairs through their key noun–verb correspondences. Search, compare, and follow the data into the learning report."
+              data-zh="透過關鍵名詞與動詞的對應關係，探索 500 組英中句對。你可以搜尋、比較，並沿著資料走進學習報告。"
+            ></span>
+          </p>
+        </div>
+        <aside class="hero-note" aria-labelledby="source-note-title">
+          <strong id="source-note-title" data-en="A source with limits." data-zh="有界限的來源。"></strong>
+          <p
+            data-en="The supplied CSV preserves 500 rows but does not state their upstream corpus, URL, or original sampling method. This explorer records only the traceable local lineage."
+            data-zh="提供的 CSV 保留 500 筆資料，但沒有註明上游語料庫、網址或原本的取樣方法。本探索器只記錄可追溯的本機來源。"
+          ></p>
+          <div class="note-stat">
+            <div>
+              <span id="heroRecordCount">500</span>
+              <small data-en="records" data-zh="筆記錄"></small>
+            </div>
+            <div>
+              <span id="heroPairCount">492</span>
+              <small data-en="unique pairs" data-zh="組不重複句對"></small>
+            </div>
+            <div>
+              <span id="heroCheckedCount">0</span>
+              <small data-en="person-checked" data-zh="筆人工核查"></small>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="workspace" aria-labelledby="explorer-title">
+        <div class="alert" role="note">
+          <strong data-en="Quality status:" data-zh="品質狀態："></strong>
+          <span
+            data-en="Every row is marked “needs review.” A fixed 50-row sample is provided in data/spot-check.csv; no AI result is presented as a person’s manual verification."
+            data-zh="所有資料均標示為「待人工複核」。data/spot-check.csv 已提供固定的 50 筆樣本；網站不會把 AI 結果冒充為人工核查。"
+          ></span>
+        </div>
+
+        <h2 class="sr-only" id="explorer-title">Corpus explorer</h2>
+        <form class="control-deck" id="filterForm" autocomplete="off">
+          <div class="field">
+            <label for="searchInput" data-en="Keyword" data-zh="關鍵詞"></label>
+            <div class="search-wrap">
+              <input
+                id="searchInput"
+                name="q"
+                type="search"
+                data-placeholder-en="Search English, Chinese, key terms, or ID"
+                data-placeholder-zh="搜尋英文、中文、關鍵詞或編號"
+              >
+            </div>
+          </div>
+          <div class="field">
+            <label for="categoryFilter" data-en="Category" data-zh="類別"></label>
+            <select id="categoryFilter" name="category">
+              <option value="" data-i18n="filterAllCategories"></option>
+              <option value="action_process" data-i18n="categoryAction"></option>
+              <option value="result_process" data-i18n="categoryResult"></option>
+              <option value="state_quality" data-i18n="categoryState"></option>
+              <option value="lexical_root" data-i18n="categoryRoot"></option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="checkedFilter" data-en="Human check" data-zh="人工核查"></label>
+            <select id="checkedFilter" name="checked">
+              <option value="" data-i18n="filterAnyCheck"></option>
+              <option value="yes" data-i18n="filterChecked"></option>
+              <option value="no" data-i18n="filterUnchecked"></option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="lengthFilter" data-en="Sentence length" data-zh="句子長度"></label>
+            <select id="lengthFilter" name="length">
+              <option value="" data-i18n="filterAllLengths"></option>
+              <option value="short" data-i18n="lengthShort"></option>
+              <option value="medium" data-i18n="lengthMedium"></option>
+              <option value="long" data-i18n="lengthLong"></option>
+            </select>
+          </div>
+        </form>
+
+        <div class="workspace-footer">
+          <div class="result-summary" id="resultSummary" aria-live="polite"></div>
+          <div class="button-row">
+            <button class="btn" id="resetFilters" type="button" data-en="Reset" data-zh="重設"></button>
+            <button class="btn btn-primary" id="shareView" type="button" data-en="Copy shareable view" data-zh="複製分享連結"></button>
+          </div>
+        </div>
+
+        <div class="stats-strip" aria-label="Corpus summary">
+          <div class="stat">
+            <span class="stat-value" id="visibleCount">500</span>
+            <span class="stat-label" data-en="visible records" data-zh="目前顯示記錄"></span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="termCount">195</span>
+            <span class="stat-label" data-en="unique English key terms" data-zh="個不重複英文關鍵詞"></span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="targetTermCount">282</span>
+            <span class="stat-label" data-en="unique Chinese correspondences" data-zh="個不重複中文對應詞"></span>
+          </div>
+          <div class="stat">
+            <span class="stat-value" id="categoryCount">4</span>
+            <span class="stat-label" data-en="codebook categories" data-zh="個分類手冊類別"></span>
+          </div>
+        </div>
+
+        <nav class="view-index" data-aria-en="Corpus views" data-aria-zh="語料檢視">
+          <a class="view-card" href="network.html" data-preserve-query>
+            <div>
+              <span class="view-number">01</span>
+              <h3 data-en="Noun–verb network" data-zh="名詞–動詞網絡"></h3>
+              <p data-en="Compare repeated English key nouns with their Chinese verb correspondences and adjust the graph controls." data-zh="比較重複出現的英文關鍵名詞與其中文動詞對應，並調整網絡控制項。"></p>
+            </div>
+            <span class="view-open" data-en="Open network →" data-zh="開啟網絡圖 →"></span>
+          </a>
+          <a class="view-card" href="terms.html" data-preserve-query>
+            <div>
+              <span class="view-number">02</span>
+              <h3 data-en="Term-in-context" data-zh="詞語與上下文"></h3>
+              <p data-en="Move from a frequent key term to aligned English and Chinese sentence contexts." data-zh="由高頻關鍵詞進入對齊的英文與中文句子上下文。"></p>
+            </div>
+            <span class="view-open" data-en="Open contexts →" data-zh="開啟上下文 →"></span>
+          </a>
+          <a class="view-card" href="distribution.html" data-preserve-query>
+            <div>
+              <span class="view-number">03</span>
+              <h3 data-en="Category by source length" data-zh="類別與原文長度"></h3>
+              <p data-en="Inspect how the codebook categories distribute across short, medium, and long sentences." data-zh="檢視分類手冊中的類別如何分佈於短、中、長句子。"></p>
+            </div>
+            <span class="view-open" data-en="Open distribution →" data-zh="開啟分佈圖 →"></span>
+          </a>
+          <a class="view-card" href="data.html" data-preserve-query>
+            <div>
+              <span class="view-number">04</span>
+              <h3 data-en="Corpus data" data-zh="語料資料"></h3>
+              <p data-en="Sort, inspect, and export the exact filtered record set used by the other views." data-zh="排序、檢查並匯出其他檢視使用的同一組篩選記錄。"></p>
+            </div>
+            <span class="view-open" data-en="Open data table →" data-zh="開啟資料表 →"></span>
+          </a>
+        </nav>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="page-shell">
+        <span data-i18n="footerProject"></span>
+        <span data-i18n="footerSource"></span>
+      </div>
+    </footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
